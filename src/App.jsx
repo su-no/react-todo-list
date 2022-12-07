@@ -23,15 +23,13 @@ function App() {
     },
   ]);
 
-  const [ACTIVE, DONE] = ['active', 'done'];
-
   return (
     <div className='container'>
       <h1 className='title'>Hyojin's To Do List</h1>
       <AddForm setTodos={setTodos} />
       <div className='todo-lists'>
-        <TodoList listName={ACTIVE} todos={todos} setTodos={setTodos} />
-        <TodoList listName={DONE} todos={todos} setTodos={setTodos} />
+        <TodoList isActive={true} todos={todos} setTodos={setTodos} />
+        <TodoList isActive={false} todos={todos} setTodos={setTodos} />
       </div>
     </div>
   );
