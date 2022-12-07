@@ -1,0 +1,42 @@
+.todo__container {
+  background-color: rgba(256, 256, 256, 0.7);
+  list-style: none;
+  padding: 2rem 1rem;
+  margin: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 8px;
+}
+
+.todo {
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+}
+
+.buttons {
+  text-align: right;
+}
+
+.btn {
+  color: rgba(0, 0, 0, 0.9);
+  font-family: 'Gowun Batang', serif;
+  background-color: #ffffff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8125rem;
+  line-height: 29px;
+  margin: 0 0.5rem;
+  padding: 0.2rem 1rem;
+  position: relative;
+  text-align: center;
+}
+
+.todo-btn:focus {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  outline: 0;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
-import Todo from './Todo';
+import Todo from '../Todo/Todo';
+import './style.css';
 
 export default function TodoList({ listName, todos, setTodos }) {
   return (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
+import './style.css';
 
 export default function AddForm({ setTodos }) {
   const [todoValue, setTodoValue] = useState('');
