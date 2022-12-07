@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import './App.css';
 import AddForm from './components/AddForm/AddForm';
+import Header from './components/Header/Header';
 import TodoList from './components/TodoList/TodoList';
 
 export default function App() {
@@ -9,7 +10,7 @@ export default function App() {
 
   return (
     <div className='container'>
-      <h1 className='title'>Hyojin's To Do List</h1>
+      <Header>Hyojin's To Do List</Header>
       <AddForm setTodos={setTodos} />
       <div className='todo-lists'>
         <TodoList isActive={true} todos={todos} setTodos={setTodos} />
