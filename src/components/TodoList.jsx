@@ -15,7 +15,6 @@ export default function TodoList({ list, todos, setTodos }) {
               <Todo
                 todo={t.todo}
                 isDone={t.isDone}
-                todos={todos}
                 setTodos={setTodos}
                 key={t.id}
                 id={t.id}
@@ -28,7 +27,6 @@ export default function TodoList({ list, todos, setTodos }) {
               <Todo
                 todo={t.todo}
                 isDone={t.isDone}
-                todos={todos}
                 setTodos={setTodos}
                 key={t.id}
                 id={t.id}

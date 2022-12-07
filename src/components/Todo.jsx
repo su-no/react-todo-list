@@ -1,7 +1,7 @@
-import React, { createRef } from 'react';
+import React, { useRef } from 'react';
 
-export default function Todo({ todo, isDone, id, todos, setTodos }) {
-  const todoRef = createRef(null);
+export default function Todo({ todo, isDone, id, setTodos }) {
+  const todoRef = useRef(null);
 
   const handleDelete = (e) => {
     const toDeleteId = todoRef.current.id;
