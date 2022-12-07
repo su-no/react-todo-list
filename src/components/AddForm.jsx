@@ -24,7 +24,7 @@ export default function AddForm({ todos, setTodos }) {
           name='new-todo'
           ref={todoRef}
         />
-        <input className='btn addform__submit' type='submit' value='추가하기' />
+        <input className='btn addform__submit' type='submit' value='추가' />
       </form>
     </div>
   );
