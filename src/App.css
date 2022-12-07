@@ -2,13 +2,15 @@
 
 .container {
   color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(256, 256, 256, 0.7);
+  border-radius: 30px;
   font-family: 'Gowun Batang', serif;
   width: 80%;
-  min-height: 100vh;
+  min-height: 90vh;
   max-width: 1200px;
   min-width: 800px;
-  margin: auto;
-  padding: 2rem 4rem;
+  padding: 4rem;
+  margin: 2rem auto;
   box-sizing: border-box;
 }
 
@@ -30,12 +32,13 @@
 }
 
 .addform__label {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: bold;
 }
 
 .addform__input {
   background-color: rgba(256, 256, 256, 0.7);
+  font-family: 'Gowun Batang', serif;
   border: none;
   padding: 0.5rem;
   width: 70%;

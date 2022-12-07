@@ -15,7 +15,7 @@ export default function AddForm({ todos, setTodos }) {
     <div className='addform__container'>
       <form className='addform' onSubmit={addTodo}>
         <label className='addform__label' htmlFor='new-todo'>
-          Todo:{' '}
+          To Do{' '}
         </label>
         <input
           className='addform__input'
@@ -23,6 +23,7 @@ export default function AddForm({ todos, setTodos }) {
           id='new-todo'
           name='new-todo'
           ref={todoRef}
+          autoFocus={true}
         />
         <input className='btn addform__submit' type='submit' value='추가' />
       </form>
