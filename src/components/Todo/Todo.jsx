@@ -4,18 +4,16 @@ import './style.css';
 export default function Todo({ todo, isDone, id, setTodos }) {
   // todo 제거하는 함수
   const handleDelete = (e) => {
-    const toDeleteId = id;
     // 해당 todo를 제외한 todos 배열을 업데이트
-    setTodos((prev) => prev.filter((t) => t.id !== toDeleteId));
+    setTodos((prev) => prev.filter((t) => t.id !== id));
   };
 
   // 완료된 todo 취소하는 함수
   const handleCancle = (e) => {
-    const toUndoneId = id;
     setTodos((prev) =>
       prev.map((t) => {
         // 해당 todo의 isDone을 false로 변경
-        if (t.id === toUndoneId) {
+        if (t.id === id) {
           return { ...t, isDone: false };
         }
         // 다른 todo는 그대로 반환
@@ -26,11 +24,10 @@ export default function Todo({ todo, isDone, id, setTodos }) {
 
   // todo를 완료하는 함수
   const handleDone = (e) => {
-    const toDoneId = id;
     setTodos((prev) =>
       prev.map((t) => {
         // 해당 todo의 isDone을 true로 변경
-        if (t.id === toDoneId) {
+        if (t.id === id) {
           return { ...t, isDone: true };
         }
         // 다른 todo는 그대로 반환
