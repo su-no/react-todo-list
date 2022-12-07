@@ -22,12 +22,13 @@ function App() {
       todo: '마라샹궈 먹기',
     },
   ]);
+
   const [ACTIVE, DONE] = ['Active 🔥', 'Done ✅'];
 
   return (
     <div className='container'>
       <h1 className='title'>Hyojin's To Do List</h1>
-      <AddForm todos={todos} setTodos={setTodos} />
+      <AddForm setTodos={setTodos} />
       <div className='todo-lists'>
         <TodoList list={ACTIVE} todos={todos} setTodos={setTodos} />
         <TodoList list={DONE} todos={todos} setTodos={setTodos} />

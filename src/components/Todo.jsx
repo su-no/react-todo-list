@@ -1,15 +1,13 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
 export default function Todo({ todo, isDone, id, setTodos }) {
-  const todoRef = useRef(null);
-
   const handleDelete = (e) => {
-    const toDeleteId = todoRef.current.id;
+    const toDeleteId = id;
     setTodos((prev) => prev.filter((t) => t.id !== toDeleteId));
   };
 
   const handleCancle = (e) => {
-    const toUndoneId = todoRef.current.id;
+    const toUndoneId = id;
     setTodos((prev) =>
       prev.map((t) => {
         if (t.id === toUndoneId) {
@@ -21,7 +19,7 @@ export default function Todo({ todo, isDone, id, setTodos }) {
   };
 
   const handleDone = (e) => {
-    const toDoneId = todoRef.current.id;
+    const toDoneId = id;
     setTodos((prev) =>
       prev.map((t) => {
         if (t.id === toDoneId) {
@@ -33,7 +31,7 @@ export default function Todo({ todo, isDone, id, setTodos }) {
   };
 
   return (
-    <li className='todo__container' id={id} key={id} ref={todoRef}>
+    <li className='todo__container' id={id} key={id}>
       <p className='todo'>{todo}</p>
       <div className='buttons'>
         <button className='btn btn__delete' onClick={handleDelete}>

@@ -1,15 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
-export default function AddForm({ todos, setTodos }) {
-  const todoRef = useRef(null);
+export default function AddForm({ setTodos }) {
+  const [todoValue, setTodoValue] = useState('');
+
+  const handleChange = (e) => {
+    setTodoValue(e.target.value);
+  };
 
   const addTodo = (event) => {
     event.preventDefault();
-    const todo = todoRef.current.value;
+    const todo = todoValue;
     setTodos((prev) => [...prev, { todo, isDone: false, id: uuid() }]);
-    todoRef.current.value = '';
-    todoRef.current.focus();
+    setTodoValue('');
   };
   return (
     <div className='addform__container'>
@@ -22,8 +25,9 @@ export default function AddForm({ todos, setTodos }) {
           type='text'
           id='new-todo'
           name='new-todo'
-          ref={todoRef}
+          onChange={handleChange}
           autoFocus={true}
+          value={todoValue}
         />
         <input className='btn addform__submit' type='submit' value='추가' />
       </form>
