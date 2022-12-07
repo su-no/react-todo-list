@@ -11,7 +11,13 @@ export default function AddForm({ setTodos }) {
 
   const addTodo = (event) => {
     event.preventDefault();
-    const todo = todoValue;
+    // todo 앞뒤 공백을 제거
+    const todo = todoValue.trim();
+    // todo 입력값이 없으면 리턴
+    if (!todo) {
+      setTodoValue('');
+      return;
+    }
     setTodos((prev) => [...prev, { todo, isDone: false, id: uuid() }]);
     setTodoValue('');
   };
