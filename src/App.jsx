@@ -16,8 +16,8 @@ export default function App() {
       <AddForm setTodos={setTodos} />
       {/* active/done 투두리스트 */}
       <div className='todo-lists'>
-        <TodoList isActive={true} todos={todos} setTodos={setTodos} />
-        <TodoList isActive={false} todos={todos} setTodos={setTodos} />
+        <TodoList name='active' todos={todos} setTodos={setTodos} />
+        <TodoList name='done' todos={todos} setTodos={setTodos} />
       </div>
     </div>
   );
