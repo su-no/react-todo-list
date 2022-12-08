@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../Button/Button';
+import Button from '../Button/Button';
 import './style.css';
 
 export default function Todo({ todo, isDone, id, setTodos }) {

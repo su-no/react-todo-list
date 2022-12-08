@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import Button from '../../Button/Button';
+import Button from '../Button/Button';
 import './style.css';
 
 export default function AddForm({ setTodos }) {
