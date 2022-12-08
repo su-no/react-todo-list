@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../../Button/Button';
 import './style.css';
 
 export default function Todo({ todo, isDone, id, setTodos }) {
@@ -40,19 +41,13 @@ export default function Todo({ todo, isDone, id, setTodos }) {
     <li className='todo__container' id={id} key={id}>
       <p className='todo'>{todo}</p>
       <div className='buttons'>
-        <button className='btn btn__delete' onClick={handleDelete}>
-          삭제
-        </button>
+        <Button handleClick={handleDelete} value='삭제' />
         {isDone ? (
           // 완료된 todo는 취소버튼 표시
-          <button className='btn btn__cancle' onClick={handleCancle}>
-            취소
-          </button>
+          <Button handleClick={handleCancle} value='취소' />
         ) : (
           // 완료되지 않은 todo는 완료버튼 표시
-          <button className='btn btn__done' onClick={handleDone}>
-            완료
-          </button>
+          <Button handleClick={handleDone} value='완료' />
         )}
       </div>
     </li>

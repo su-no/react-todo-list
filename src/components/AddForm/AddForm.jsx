@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
+import Button from '../../Button/Button';
 import './style.css';
 
 export default function AddForm({ setTodos }) {
@@ -39,7 +40,7 @@ export default function AddForm({ setTodos }) {
           autoFocus={true}
           value={todoValue}
         />
-        <input className='btn addform__submit' type='submit' value='추가' />
+        <Button value='추가' />
       </form>
     </div>
   );
