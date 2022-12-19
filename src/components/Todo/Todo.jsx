@@ -1,16 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { deleteTodo, toggleTodo } from '../../store/modules/todos';
 import './style.css';
 import Button from '../Button/Button';
 
 export default function Todo({ todo, isDone, id }) {
   const dispatch = useDispatch();
-
-  // todo를 클릭하면 상세페이지로 이동
-  const handleClick = () => {
-    console.log(`{${todo}} 상세 페이지로 이동`);
-  };
+  const navigate = useNavigate();
 
   // todo 제거하는 함수
   const handleDelete = () => {
@@ -23,8 +20,11 @@ export default function Todo({ todo, isDone, id }) {
   };
 
   return (
-    <li className='todo__container' id={id} key={id} onClick={handleClick}>
-      <p className='todo'>{todo}</p>
+    <li className='todo__container' id={id} key={id}>
+      {/* todo를 클릭하면 상세페이지로 이동 */}
+      <p className='todo' onClick={() => navigate(`/${id}`)}>
+        {todo}
+      </p>
       <div className='buttons'>
         <Button handleClick={handleDelete} value='삭제' />
         {/* 완료된 todo는 취소버튼 표시, 완료되지 않은 todo는 완료버튼 표시 */}

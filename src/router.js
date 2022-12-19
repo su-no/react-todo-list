@@ -11,8 +11,8 @@ import TodoDetail from './components/TodoDetail/TodoDetail';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Root />} errorElement={<NotFound />}>
-      <Route index={true} element={<TodoDetail />} />
-      <Route path='/:todoId' element={<MyTodoList />} />
+      <Route index={true} element={<MyTodoList />} />
+      <Route path='/:todoId' element={<TodoDetail />} />
     </Route>
   )
 );

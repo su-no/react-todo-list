@@ -1,0 +1,67 @@
+.todo-detail__container {
+  /* background-color: pink; */
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 8px;
+  padding: 2rem 4rem;
+  margin: 2rem;
+  min-height: 400px;
+  background-color: rgba(256, 256, 256, 0.7);
+}
+
+.todo-detail__btn {
+  font-family: 'Gowun Batang', serif;
+  align-self: flex-end;
+  color: rgba(0, 0, 0, 0.9);
+  background-color: #ffffff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8125rem;
+  line-height: 29px;
+  padding: 0.2rem 1rem;
+  position: relative;
+  text-align: center;
+}
+
+.todo_detail__btn:hover {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  outline: 0;
+}
+
+.todo-title {
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2.5;
+}
+
+.todo-title::after {
+  content: '';
+  display: block;
+  /* width: 100%; */
+  border-bottom: 1px dotted black;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.ul {
+  padding-left: 1.5rem;
+}
+
+.li {
+  font-size: 1.2rem;
+  list-style: circle;
+  line-height: 3;
+}
+
+.li-name {
+  display: inline-block;
+  width: 5rem;
+  font-weight: bold;
+}

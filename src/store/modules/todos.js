@@ -16,17 +16,17 @@ export const deleteTodo = (id) => ({ type: DELETE_TODO, id });
 // Initial State
 const initialState = [
   {
-    id: uuid(),
+    id: '90189503-f781-47ae-95c0-01c72f165590',
     isDone: false,
     todo: '리액트 강의 듣기',
   },
   {
-    id: uuid(),
+    id: 'f04b5152-00f1-4656-871f-b3cf15d3fb6d',
     isDone: true,
     todo: '투두 리스트 만들기',
   },
   {
-    id: uuid(),
+    id: 'b2385f05-7824-4c28-829a-5d208ee5a634',
     isDone: true,
     todo: '마라샹궈 먹기',
   },
