@@ -1,4 +1,5 @@
 import { v4 as uuid } from 'uuid';
+import initialTodos from '../../assets/data/initialTodos';
 
 // Action Values
 const ADD_TODO = 'todos/ADD_TODO';
@@ -14,23 +15,9 @@ export const toggleTodo = (id, todo) => ({ type: TOGGLE_TODO, id, todo });
 export const deleteTodo = (id) => ({ type: DELETE_TODO, id });
 
 // Initial State
-const initialState = [
-  {
-    id: '90189503-f781-47ae-95c0-01c72f165590',
-    isDone: false,
-    todo: '리액트 강의 듣기',
-  },
-  {
-    id: 'f04b5152-00f1-4656-871f-b3cf15d3fb6d',
-    isDone: true,
-    todo: '투두 리스트 만들기',
-  },
-  {
-    id: 'b2385f05-7824-4c28-829a-5d208ee5a634',
-    isDone: true,
-    todo: '마라샹궈 먹기',
-  },
-];
+const initialState = localStorage.getItem('todos')
+  ? JSON.parse(localStorage.getItem('todos'))
+  : initialTodos;
 
 // Reducer
 const todos = (state = initialState, action) => {

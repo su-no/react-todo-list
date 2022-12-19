@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import './style.css';
 import Todo from '../Todo/Todo';
@@ -6,6 +6,10 @@ import Todo from '../Todo/Todo';
 export default function TodoList({ name }) {
   const isActiveList = name === 'active' ? true : false;
   const todos = useSelector((state) => state.todos);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <div className='todo-list'>
