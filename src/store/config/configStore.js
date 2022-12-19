@@ -20,6 +20,5 @@ const rootReducer = combineReducers({
   todos: todos,
 });
 const store = createStore(rootReducer);
-console.log(store.getState());
 
 export default store;
