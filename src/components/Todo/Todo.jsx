@@ -28,13 +28,8 @@ export default function Todo({ todo, isDone, id, setTodos }) {
       <p className='todo'>{todo}</p>
       <div className='buttons'>
         <Button handleClick={deleteTodo} value='삭제' />
-        {isDone ? (
-          // 완료된 todo는 취소버튼 표시
-          <Button handleClick={updateTodo} value='취소' />
-        ) : (
-          // 완료되지 않은 todo는 완료버튼 표시
-          <Button handleClick={updateTodo} value='완료' />
-        )}
+        {/* 완료된 todo는 취소버튼 표시, 완료되지 않은 todo는 완료버튼 표시 */}
+        <Button handleClick={updateTodo} value={isDone ? '취소' : '완료'} />
       </div>
     </li>
   );
