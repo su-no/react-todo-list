@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteTodo, toggleTodo } from '../../redux/modules/todos';
+import { deleteTodo, toggleTodo } from '../../store/modules/todos';
 import './style.css';
 import Button from '../Button/Button';
 
