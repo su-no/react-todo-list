@@ -1,6 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.css';
 
 export default function Header({ children }) {
-  return <h1 className='title'>{children}</h1>;
+  const navigate = useNavigate();
+
+  return (
+    <h1 className='title' onClick={() => navigate('/')}>
+      {children}
+    </h1>
+  );
 }
