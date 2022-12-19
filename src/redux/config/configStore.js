@@ -1,5 +1,6 @@
 import { createStore } from 'redux';
 import { combineReducers } from 'redux';
+import todos from '../modules/todos';
 
 /*
 1. createStore()
@@ -15,7 +16,10 @@ import { combineReducers } from 'redux';
 combineReducers은 여러 개의 독립적인 reducer의 반환 값을 하나의 상태 객체로 만들어줍니다.
 */
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  todos: todos,
+});
 const store = createStore(rootReducer);
+console.log(store.getState());
 
 export default store;

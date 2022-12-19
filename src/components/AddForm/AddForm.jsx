@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { v4 as uuid } from 'uuid';
-import Button from '../Button/Button';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../../redux/modules/todos';
 import './style.css';
+import Button from '../Button/Button';
 
-export default function AddForm({ setTodos }) {
+export default function AddForm() {
   const [todoValue, setTodoValue] = useState('');
+  const dispatch = useDispatch();
 
   // input 값이 바뀔 때 todoValue 값을 업데이트
   const handleChange = (e) => {
@@ -12,7 +14,7 @@ export default function AddForm({ setTodos }) {
   };
 
   // form이 submit되면 실행되는 함수. todo를 추가함
-  const addTodo = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const todo = todoValue.trim(); // todo 앞뒤 공백을 제거
     if (!todo) {
@@ -21,13 +23,13 @@ export default function AddForm({ setTodos }) {
       return;
     }
     // todo 추가
-    setTodos((prev) => [...prev, { todo, isDone: false, id: uuid() }]);
+    dispatch(addTodo(todo));
     setTodoValue('');
   };
 
   return (
     <div className='addform__container'>
-      <form className='addform' onSubmit={addTodo}>
+      <form className='addform' onSubmit={handleSubmit}>
         <label className='addform__label' htmlFor='new-todo'>
           To Do{' '}
         </label>

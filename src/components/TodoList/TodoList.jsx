@@ -1,9 +1,11 @@
 import React from 'react';
-import Todo from '../Todo/Todo';
+import { useSelector } from 'react-redux';
 import './style.css';
+import Todo from '../Todo/Todo';
 
-export default function TodoList({ name, todos, setTodos }) {
+export default function TodoList({ name }) {
   const isActiveList = name === 'active' ? true : false;
+  const todos = useSelector((state) => state.todos);
 
   return (
     <div className='todo-list'>
@@ -16,13 +18,7 @@ export default function TodoList({ name, todos, setTodos }) {
         // done일 때는 inDone이 true인 값만 표시
         .filter((t) => isActiveList === !t.isDone)
         .map((t) => (
-          <Todo
-            todo={t.todo}
-            isDone={t.isDone}
-            setTodos={setTodos}
-            key={t.id}
-            id={t.id}
-          />
+          <Todo todo={t.todo} isDone={t.isDone} key={t.id} id={t.id} />
         ))}
     </div>
   );
