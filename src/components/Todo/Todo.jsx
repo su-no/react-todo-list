@@ -11,7 +11,9 @@ export default function Todo({ todo, isDone, id }) {
 
   // todo 제거하는 함수
   const handleDelete = () => {
-    dispatch(deleteTodo(id));
+    if (window.confirm('정말 삭제하시겠습니까?')) {
+      dispatch(deleteTodo(id));
+    }
   };
 
   // todo 상태를 업데이트 하는 함수
