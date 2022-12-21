@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { deleteTodo, toggleTodo } from '../../store/modules/todos';
+import { deleteTodo, toggleTodo } from '../../store/modules/todosSlice';
 import Button from '../common/Button/Button';
 import * as styled from './Todo.style';
 
