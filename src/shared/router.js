@@ -3,10 +3,10 @@ import {
   createRoutesFromElements,
   Route,
 } from 'react-router-dom';
-import Root from './pages/Root';
-import NotFound from './pages/NotFound';
-import MyTodoList from './pages/MyTodoList';
-import TodoDetail from './components/TodoDetail/TodoDetail';
+import Root from '../pages/Root.jsx';
+import NotFound from '../pages/NotFound';
+import MyTodoList from '../pages/MyTodoList';
+import TodoDetail from '../components/TodoDetail/TodoDetail';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
