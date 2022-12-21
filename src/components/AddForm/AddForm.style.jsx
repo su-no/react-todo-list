@@ -9,6 +9,7 @@ export const Form = styled.form`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 `;
 
 export const Label = styled.label`
@@ -28,4 +29,12 @@ export const Input = styled.input`
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 8px;
+`;
+
+export const ErrorMessage = styled.div`
+  display: ${(props) => (props.visible ? 'block' : 'none')};
+  position: absolute;
+  left: 100px;
+  top: 50px;
+  color: #e17aa0;
 `;
