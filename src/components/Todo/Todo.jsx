@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { deleteTodo, toggleTodo } from '../../store/modules/todos';
-import './style.css';
-import Button from '../Button/Button';
+import Button from '../common/Button/Button';
+import * as styled from './Todo.style';
 
 export default function Todo({ todo, isDone, id }) {
   const dispatch = useDispatch();
@@ -22,16 +22,14 @@ export default function Todo({ todo, isDone, id }) {
   };
 
   return (
-    <li className='todo__container' id={id} key={id}>
+    <styled.TodoContainer id={id} key={id}>
       {/* todo를 클릭하면 상세페이지로 이동 */}
-      <p className='todo' onClick={() => navigate(`/${id}`)}>
-        {todo}
-      </p>
-      <div className='buttons'>
+      <styled.Todo onClick={() => navigate(`/${id}`)}>{todo}</styled.Todo>
+      <styled.Buttons>
         <Button handleClick={handleDelete} value='삭제' />
         {/* 완료된 todo는 취소버튼 표시, 완료되지 않은 todo는 완료버튼 표시 */}
         <Button handleClick={handleToggle} value={isDone ? '취소' : '완료'} />
-      </div>
-    </li>
+      </styled.Buttons>
+    </styled.TodoContainer>
   );
 }
