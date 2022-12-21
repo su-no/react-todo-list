@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import './style.css';
 import Todo from '../Todo/Todo';
+import * as styled from './TodoList.style';
 
 export default function TodoList({ name }) {
   const isActiveList = name === 'active' ? true : false;
@@ -12,11 +12,9 @@ export default function TodoList({ name }) {
   }, [todos]);
 
   return (
-    <div className='todo-list'>
+    <styled.Container>
       {/* active/done 리스트에 따라 타이틀 표시 */}
-      <h2 className='todo-list__title'>
-        {isActiveList ? 'Active 🔥' : 'Done ✅'}
-      </h2>
+      <styled.Title>{isActiveList ? 'Active 🔥' : 'Done ✅'}</styled.Title>
       {todos
         // active일 때는 isDone이 false인 값만 표시
         // done일 때는 inDone이 true인 값만 표시
@@ -24,6 +22,6 @@ export default function TodoList({ name }) {
         .map((t) => (
           <Todo todo={t.todo} isDone={t.isDone} key={t.id} id={t.id} />
         ))}
-    </div>
+    </styled.Container>
   );
 }

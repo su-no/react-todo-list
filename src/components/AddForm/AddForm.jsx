@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTodo } from '../../store/modules/todos';
-import './style.css';
-import Button from '../Button/Button';
+import Button from '../common/Button/Button';
+import * as styled from './AddForm.style';
 
 export default function AddForm() {
   const [todoValue, setTodoValue] = useState('');
@@ -28,13 +28,10 @@ export default function AddForm() {
   };
 
   return (
-    <div className='addform__container'>
-      <form className='addform' onSubmit={handleSubmit}>
-        <label className='addform__label' htmlFor='new-todo'>
-          To Do{' '}
-        </label>
-        <input
-          className='addform__input'
+    <styled.FormContainer>
+      <styled.Form onSubmit={handleSubmit}>
+        <styled.Label htmlFor='new-todo'>To Do </styled.Label>
+        <styled.Input
           type='text'
           id='new-todo'
           name='new-todo'
@@ -43,7 +40,7 @@ export default function AddForm() {
           value={todoValue}
         />
         <Button value='추가' />
-      </form>
-    </div>
+      </styled.Form>
+    </styled.FormContainer>
   );
 }
