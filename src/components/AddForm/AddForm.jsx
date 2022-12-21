@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTodo } from '../../store/modules/todos';
+import { addTodo } from '../../store/modules/todosSlice';
 import Button from '../common/Button/Button';
 import * as styled from './AddForm.style';
 
