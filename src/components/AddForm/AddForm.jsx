@@ -6,6 +6,7 @@ import * as styled from './AddForm.style';
 
 export default function AddForm() {
   const [todoValue, setTodoValue] = useState('');
+  const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
 
   // input 값이 바뀔 때 todoValue 값을 업데이트
@@ -20,10 +21,12 @@ export default function AddForm() {
     if (!todo) {
       // todo 입력값이 없으면 초기화 후 리턴
       setTodoValue('');
+      setVisible(true); // 경고문구 표시
       return;
     }
     // todo 추가
     dispatch(addTodo(todo));
+    setVisible(false); // 경고문구 숨김
     setTodoValue('');
   };
 
@@ -39,6 +42,9 @@ export default function AddForm() {
           autoFocus={true}
           value={todoValue}
         />
+        <styled.ErrorMessage visible={visible}>
+          내용을 입력하세요.
+        </styled.ErrorMessage>
         <Button value='추가' />
       </styled.Form>
     </styled.FormContainer>
