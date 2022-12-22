@@ -1,27 +1,40 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { deleteTodo, toggleTodo } from '../../store/modules/todosSlice';
+import { useMutation } from '@tanstack/react-query';
+import { queryClient } from '../../App';
+import axios from 'axios';
 import Button from '../common/Button/Button';
 import * as styled from './Todo.style';
-import axios from 'axios';
 
 export default function Todo({ todo, isDone, id }) {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const mutationDelete = useMutation({
+    mutationFn: async (id) => {
+      await axios.delete(`http://localhost:3001/todos/${id}`);
+    },
+    onSuccess: () => queryClient.invalidateQueries('todos'),
+  });
+
+  const mutationToggle = useMutation({
+    mutationFn: async (isDone) => {
+      await axios.patch(`http://localhost:3001/todos/${id}`, {
+        isDone: !isDone,
+      });
+    },
+    onSuccess: () => queryClient.invalidateQueries('todos'),
+  });
 
   // todo 제거하는 함수
   const handleDelete = () => {
     if (window.confirm('정말 삭제하시겠습니까?')) {
-      dispatch(deleteTodo(id));
-      axios.delete(`http://localhost:3001/todos/${id}`);
+      mutationDelete.mutate(id);
     }
   };
 
   // todo 상태를 업데이트 하는 함수
   const handleToggle = () => {
-    dispatch(toggleTodo(id, todo));
-    axios.patch(`http://localhost:3001/todos/${id}`, { isDone: true });
+    mutationToggle.mutate(isDone);
   };
 
   return (

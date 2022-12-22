@@ -1,19 +1,14 @@
 {
   "todos": [
     {
-      "id": "2eN2Owq",
-      "isDone": true,
-      "todo": "투두 리스트 만들기"
-    },
-    {
-      "id": "lP77KLZ",
-      "isDone": true,
-      "todo": "리액트 심화 강의 듣기"
-    },
-    {
       "isDone": false,
       "todo": "리액트 심화 강의 듣기",
       "id": "JYv0bih"
+    },
+    {
+      "isDone": true,
+      "todo": "투두리스트 만들기",
+      "id": "NMH1D7O"
     }
   ]
 }
