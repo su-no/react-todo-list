@@ -4,8 +4,11 @@ import initialTodos from '../../assets/data/initialTodos';
 
 export const todosSlice = createSlice({
   name: 'todos',
-  initialState: readLocalStorageTodos(),
+  initialState: [],
   reducers: {
+    initializeTodos: (state, action) => {
+      state.push(...action.payload);
+    },
     addTodo: (state, action) => {
       state.push({
         id: uuid(),
@@ -24,10 +27,6 @@ export const todosSlice = createSlice({
   },
 });
 
-export const { addTodo, deleteTodo, toggleTodo } = todosSlice.actions;
+export const { initializeTodos, addTodo, deleteTodo, toggleTodo } =
+  todosSlice.actions;
 export default todosSlice.reducer;
-
-function readLocalStorageTodos() {
-  const todos = localStorage.getItem('todos');
-  return todos ? JSON.parse(localStorage.getItem('todos')) : initialTodos;
-}
