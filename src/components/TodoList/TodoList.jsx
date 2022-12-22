@@ -1,15 +1,20 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { initializeTodos } from '../../store/modules/todosSlice';
 import Todo from '../Todo/Todo';
 import * as styled from './TodoList.style';
+import axios from 'axios';
 
 export default function TodoList({ name }) {
   const isActiveList = name === 'active' ? true : false;
   const todos = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
+    axios.get('http://localhost:3001/todos').then((res) => {
+      dispatch(initializeTodos(res.data));
+    });
+  }, []);
 
   return (
     <styled.Container>

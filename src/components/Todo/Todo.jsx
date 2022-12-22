@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { deleteTodo, toggleTodo } from '../../store/modules/todosSlice';
 import Button from '../common/Button/Button';
 import * as styled from './Todo.style';
+import axios from 'axios';
 
 export default function Todo({ todo, isDone, id }) {
   const dispatch = useDispatch();
@@ -13,12 +14,14 @@ export default function Todo({ todo, isDone, id }) {
   const handleDelete = () => {
     if (window.confirm('정말 삭제하시겠습니까?')) {
       dispatch(deleteTodo(id));
+      axios.delete(`http://localhost:3001/todos/${id}`);
     }
   };
 
   // todo 상태를 업데이트 하는 함수
   const handleToggle = () => {
     dispatch(toggleTodo(id, todo));
+    axios.patch(`http://localhost:3001/todos/${id}`, { isDone: true });
   };
 
   return (

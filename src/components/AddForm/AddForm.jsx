@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addTodo } from '../../store/modules/todosSlice';
 import Button from '../common/Button/Button';
 import * as styled from './AddForm.style';
+import axios from 'axios';
 
 export default function AddForm() {
   const [todoValue, setTodoValue] = useState('');
@@ -26,6 +27,7 @@ export default function AddForm() {
     }
     // todo 추가
     dispatch(addTodo(todo));
+    axios.post('http://localhost:3001/todos', { isDone: false, todo });
     setVisible(false); // 경고문구 숨김
     setTodoValue('');
   };
