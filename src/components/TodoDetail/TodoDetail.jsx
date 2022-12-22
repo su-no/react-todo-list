@@ -1,30 +1,43 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-import './style.css';
-import * as styled from './TodoDetail.style';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import Button from '../common/Button/Button';
+import * as styled from './TodoDetail.style';
+import './style.css';
 
 export default function TodoDetail() {
   const { todoId } = useParams();
-  const todos = useSelector((state) => state.todos);
-  const { id, isDone, todo } = todos.filter((t) => t.id === todoId)[0];
   const navigate = useNavigate();
+
+  const { isLoading, data: todoDetail } = useQuery({
+    queryKey: ['todo'],
+    queryFn: async () => {
+      const { data } = await axios.get(`http://localhost:3001/todos/${todoId}`);
+      return data;
+    },
+  });
 
   return (
     <styled.TodoDetailContainer>
-      <Button value='뒤로' handleClick={() => navigate(-1)} />
-      <styled.Title>{todo}</styled.Title>
-      <ul className='ul'>
-        <li className='li'>
-          <span className='li-name'>ID</span>
-          {id}
-        </li>
-        <li className='li'>
-          <span className='li-name'>State</span>
-          {isDone ? 'Completed ✅' : 'Active 🔥'}
-        </li>
-      </ul>
+      {isLoading ? (
+        'Loading...'
+      ) : (
+        <>
+          <Button value='뒤로' handleClick={() => navigate(-1)} />
+          <styled.Title>{todoDetail.todo}</styled.Title>
+          <ul className='ul'>
+            <li className='li'>
+              <span className='li-name'>ID</span>
+              {todoDetail.id}
+            </li>
+            <li className='li'>
+              <span className='li-name'>State</span>
+              {todoDetail.isDone ? 'Completed ✅' : 'Active 🔥'}
+            </li>
+          </ul>
+        </>
+      )}
     </styled.TodoDetailContainer>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addTodo } from '../../store/modules/todosSlice';
+import { useMutation } from '@tanstack/react-query';
+import { queryClient } from '../../App';
 import Button from '../common/Button/Button';
 import * as styled from './AddForm.style';
 import axios from 'axios';
@@ -8,7 +8,15 @@ import axios from 'axios';
 export default function AddForm() {
   const [todoValue, setTodoValue] = useState('');
   const [visible, setVisible] = useState(false);
-  const dispatch = useDispatch();
+
+  const mutationAdd = useMutation({
+    mutationFn: async (newTodo) => {
+      await axios.post('http://localhost:3001/todos', newTodo);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries('todos');
+    },
+  });
 
   // input 값이 바뀔 때 todoValue 값을 업데이트
   const handleChange = (e) => {
@@ -18,6 +26,7 @@ export default function AddForm() {
   // form이 submit되면 실행되는 함수. todo를 추가함
   const handleSubmit = (event) => {
     event.preventDefault();
+
     const todo = todoValue.trim(); // todo 앞뒤 공백을 제거
     if (!todo) {
       // todo 입력값이 없으면 초기화 후 리턴
@@ -25,9 +34,9 @@ export default function AddForm() {
       setVisible(true); // 경고문구 표시
       return;
     }
-    // todo 추가
-    dispatch(addTodo(todo));
-    axios.post('http://localhost:3001/todos', { isDone: false, todo });
+
+    // DB에 todo 추가
+    mutationAdd.mutate({ isDone: false, todo });
     setVisible(false); // 경고문구 숨김
     setTodoValue('');
   };
