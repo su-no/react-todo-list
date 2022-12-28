@@ -3,9 +3,10 @@ import { useQuery } from '@tanstack/react-query';
 import Todo from '../Todo/Todo';
 import * as styled from './TodoList.style';
 import axios from 'axios';
+import { SERVER_URL } from '../../common/axios/constant';
 
 const fetchTodoList = async () => {
-  const { data } = await axios.get('http://localhost:3001/todos');
+  const { data } = await axios.get(`${SERVER_URL}/todos`);
   return data;
 };
 

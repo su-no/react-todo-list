@@ -4,6 +4,7 @@ import { queryClient } from '../../App';
 import Button from '../common/Button/Button';
 import * as styled from './AddForm.style';
 import axios from 'axios';
+import { SERVER_URL } from '../../common/axios/constant';
 
 export default function AddForm() {
   const [todoValue, setTodoValue] = useState('');
@@ -11,7 +12,7 @@ export default function AddForm() {
 
   const mutationAdd = useMutation({
     mutationFn: async (newTodo) => {
-      await axios.post('http://localhost:3001/todos', newTodo);
+      await axios.post(`${SERVER_URL}/todos`, newTodo);
     },
     onSuccess: () => {
       queryClient.invalidateQueries('todos');
