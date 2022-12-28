@@ -1,24 +1,24 @@
 import styled from 'styled-components';
 
-export const FormContainer = styled.div`
+export const TodoFormContainer = styled.div`
   padding: 2rem;
   margin: 2rem 0;
 `;
 
-export const Form = styled.form`
+export const TodoForm = styled.form`
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
 `;
 
-export const Label = styled.label`
+export const TodoLabel = styled.label`
   font-size: 1.7rem;
   font-weight: bold;
   margin: 0.5rem;
 `;
 
-export const Input = styled.input`
+export const TodoInput = styled.input`
   background-color: rgba(256, 256, 256, 0.7);
   font-family: 'Gowun Batang', serif;
   border: none;
@@ -31,7 +31,7 @@ export const Input = styled.input`
   border-radius: 8px;
 `;
 
-export const ErrorMessage = styled.div`
+export const TodoInputErrorMessage = styled.div`
   display: ${(props) => (props.visible ? 'block' : 'none')};
   position: absolute;
   left: 100px;

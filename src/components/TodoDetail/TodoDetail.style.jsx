@@ -25,3 +25,19 @@ export const Title = styled.h2`
     margin: 1rem 0 1.5rem 0;
   }
 `;
+
+export const Ul = styled.ul`
+  padding-left: 1.5rem;
+`;
+
+export const Li = styled.li`
+  font-size: 1.2rem;
+  list-style: circle;
+  line-height: 3;
+`;
+
+export const BordName = styled.span`
+  display: inline-block;
+  width: 5rem;
+  font-weight: bold;
+`;

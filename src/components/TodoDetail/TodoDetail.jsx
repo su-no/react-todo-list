@@ -2,10 +2,9 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import Button from '../common/Button/Button';
-import * as styled from './TodoDetail.style';
-import './style.css';
 import { SERVER_URL } from '../../common/axios/constant';
+import * as styled from './TodoDetail.style';
+import Button from '../common/Button/Button';
 
 export default function TodoDetail() {
   const { todoId } = useParams();
@@ -27,16 +26,16 @@ export default function TodoDetail() {
         <>
           <Button value='뒤로' handleClick={() => navigate(-1)} />
           <styled.Title>{todoDetail.todo}</styled.Title>
-          <ul className='ul'>
-            <li className='li'>
-              <span className='li-name'>ID</span>
+          <styled.Ul>
+            <styled.Li className='li'>
+              <styled.BordName className='li-name'>ID</styled.BordName>
               {todoDetail.id}
-            </li>
-            <li className='li'>
-              <span className='li-name'>State</span>
+            </styled.Li>
+            <styled.Li className='li'>
+              <styled.BordName className='li-name'>State</styled.BordName>
               {todoDetail.isDone ? 'Completed ✅' : 'Active 🔥'}
-            </li>
-          </ul>
+            </styled.Li>
+          </styled.Ul>
         </>
       )}
     </styled.TodoDetailContainer>

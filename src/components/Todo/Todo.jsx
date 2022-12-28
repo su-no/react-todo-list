@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
-import { queryClient } from '../../App';
 import axios from 'axios';
-import Button from '../common/Button/Button';
-import * as styled from './Todo.style';
+import { queryClient } from '../../App';
 import { SERVER_URL } from '../../common/axios/constant';
+import * as styled from './Todo.style';
+import Button from '../common/Button/Button';
 
 export default function Todo({ todo, isDone, id }) {
   const navigate = useNavigate();
@@ -41,7 +41,9 @@ export default function Todo({ todo, isDone, id }) {
   return (
     <styled.TodoContainer id={id} key={id}>
       {/* todo를 클릭하면 상세페이지로 이동 */}
-      <styled.Todo onClick={() => navigate(`/${id}`)}>{todo}</styled.Todo>
+      <styled.TodoItem onClick={() => navigate(`/${id}`)}>
+        {todo}
+      </styled.TodoItem>
       <styled.Buttons>
         <Button handleClick={handleDelete} value='삭제' />
         {/* 완료된 todo는 취소버튼 표시, 완료되지 않은 todo는 완료버튼 표시 */}

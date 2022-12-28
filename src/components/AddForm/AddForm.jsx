@@ -43,10 +43,10 @@ export default function AddForm() {
   };
 
   return (
-    <styled.FormContainer>
-      <styled.Form onSubmit={handleSubmit}>
-        <styled.Label htmlFor='new-todo'>To Do </styled.Label>
-        <styled.Input
+    <styled.TodoFormContainer>
+      <styled.TodoForm onSubmit={handleSubmit}>
+        <styled.TodoLabel htmlFor='new-todo'>To Do </styled.TodoLabel>
+        <styled.TodoInput
           type='text'
           id='new-todo'
           name='new-todo'
@@ -54,11 +54,11 @@ export default function AddForm() {
           autoFocus={true}
           value={todoValue}
         />
-        <styled.ErrorMessage visible={visible}>
+        <styled.TodoInputErrorMessage visible={visible}>
           내용을 입력하세요.
-        </styled.ErrorMessage>
+        </styled.TodoInputErrorMessage>
         <Button value='추가' />
-      </styled.Form>
-    </styled.FormContainer>
+      </styled.TodoForm>
+    </styled.TodoFormContainer>
   );
 }

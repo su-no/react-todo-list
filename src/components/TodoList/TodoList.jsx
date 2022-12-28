@@ -1,9 +1,9 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import Todo from '../Todo/Todo';
-import * as styled from './TodoList.style';
 import axios from 'axios';
 import { SERVER_URL } from '../../common/axios/constant';
+import * as styled from './TodoList.style';
+import Todo from '../Todo/Todo';
 
 const fetchTodoList = async () => {
   const { data } = await axios.get(`${SERVER_URL}/todos`);

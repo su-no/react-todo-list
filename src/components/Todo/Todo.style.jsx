@@ -10,7 +10,7 @@ export const TodoContainer = styled.li`
   border-radius: 8px;
 `;
 
-export const Todo = styled.p`
+export const TodoItem = styled.p`
   cursor: pointer;
   font-size: 1.2rem;
   padding-bottom: 2rem;
