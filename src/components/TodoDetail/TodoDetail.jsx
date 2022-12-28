@@ -5,6 +5,7 @@ import axios from 'axios';
 import Button from '../common/Button/Button';
 import * as styled from './TodoDetail.style';
 import './style.css';
+import { SERVER_URL } from '../../common/axios/constant';
 
 export default function TodoDetail() {
   const { todoId } = useParams();
@@ -13,7 +14,7 @@ export default function TodoDetail() {
   const { isLoading, data: todoDetail } = useQuery({
     queryKey: ['todo'],
     queryFn: async () => {
-      const { data } = await axios.get(`http://localhost:3001/todos/${todoId}`);
+      const { data } = await axios.get(`${SERVER_URL}/todos/${todoId}`);
       return data;
     },
   });

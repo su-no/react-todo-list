@@ -5,20 +5,21 @@ import { queryClient } from '../../App';
 import axios from 'axios';
 import Button from '../common/Button/Button';
 import * as styled from './Todo.style';
+import { SERVER_URL } from '../../common/axios/constant';
 
 export default function Todo({ todo, isDone, id }) {
   const navigate = useNavigate();
 
   const mutationDelete = useMutation({
     mutationFn: async (id) => {
-      await axios.delete(`http://localhost:3001/todos/${id}`);
+      await axios.delete(`${SERVER_URL}/todos/${id}`);
     },
     onSuccess: () => queryClient.invalidateQueries('todos'),
   });
 
   const mutationToggle = useMutation({
     mutationFn: async (isDone) => {
-      await axios.patch(`http://localhost:3001/todos/${id}`, {
+      await axios.patch(`${SERVER_URL}/todos/${id}`, {
         isDone: !isDone,
       });
     },
