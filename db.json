@@ -12,13 +12,18 @@
     },
     {
       "isDone": true,
-      "todo": "dd",
-      "id": "lDPcfos"
+      "todo": "custom hook 만들기",
+      "id": "ozlt6pr"
     },
     {
       "isDone": false,
-      "todo": "geg",
-      "id": "yBjjb2B"
+      "todo": "리액트 네이티브 공부하기",
+      "id": "Fd5V9vm"
+    },
+    {
+      "isDone": false,
+      "todo": "React Lifecycle 공부하기",
+      "id": "2b-wKy2"
     }
   ]
 }

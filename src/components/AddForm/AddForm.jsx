@@ -1,6 +1,6 @@
-import Button from '../common/Button/Button';
+import { useInput } from '../../hooks';
 import * as styled from './AddForm.style';
-import { useInput } from '../../hooks/useInput';
+import Button from '../common/Button/Button';
 
 export default function AddForm() {
   const { visible, handleSubmit, todoValue, handleChange } = useInput();

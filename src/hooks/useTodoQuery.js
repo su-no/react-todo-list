@@ -13,5 +13,8 @@ export const useTodoQuery = () => {
     queryFn: fetchTodoList,
   });
 
-  return { isLoading, todos };
+  const activeTodos = todos?.filter(({ isDone }) => !isDone);
+  const doneTodos = todos?.filter(({ isDone }) => isDone);
+
+  return { isLoading, activeTodos, doneTodos };
 };
